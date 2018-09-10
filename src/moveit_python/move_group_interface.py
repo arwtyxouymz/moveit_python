@@ -163,6 +163,7 @@ class MoveGroupInterface(object):
                    gripper_frame,
                    tolerance=0.01,
                    wait=True,
+                   mode="default",
                    **kwargs):
         # Check arguments
         supported_args = ("max_velocity_scaling_factor",
@@ -195,8 +196,14 @@ class MoveGroupInterface(object):
         c1.position_constraints[0].link_name = gripper_frame
         b = BoundingVolume()
         s = SolidPrimitive()
-        s.dimensions = [tolerance * tolerance]
-        s.type = s.SPHERE
+
+        if mode == "rotation":
+            s.type = s.BOX
+            s.dimensions = [0.4, 0.4, 0.4]
+        else:
+            s.type = s.SPHERE
+            s.dimensions = [tolerance[0] * tolerance[0]]
+
         b.primitives.append(s)
         b.primitive_poses.append(pose_transformed.pose)
         c1.position_constraints[0].constraint_region = b
