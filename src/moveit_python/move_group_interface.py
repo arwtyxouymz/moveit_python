@@ -202,7 +202,7 @@ class MoveGroupInterface(object):
             s.dimensions = [0.4, 0.4, 0.4]
         else:
             s.type = s.SPHERE
-            s.dimensions = [tolerance[0] * tolerance[0]]
+            s.dimensions = [tolerance * tolerance]
 
         b.primitives.append(s)
         b.primitive_poses.append(pose_transformed.pose)
