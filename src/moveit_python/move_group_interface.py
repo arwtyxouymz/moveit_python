@@ -199,7 +199,7 @@ class MoveGroupInterface(object):
 
         if mode == "rotation":
             s.type = s.BOX
-            s.dimensions = [0.1, 0.15, 0.2]
+            s.dimensions = [0.175, 0.15, 0.15]
         else:
             s.type = s.SPHERE
             s.dimensions = [tolerance * tolerance]
