@@ -54,7 +54,7 @@ class MoveGroupInterface(object):
             self._listener = listener
         self.plan_only = plan_only
         self.planner_id = None
-        self.planning_time = 15.0
+        self.planning_time = 10.0
 
     def get_move_action(self):
         return self._action
